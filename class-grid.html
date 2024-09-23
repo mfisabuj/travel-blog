@@ -10,48 +10,59 @@
 .grid-parent {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: 20px;
-    height: 500px;
-    width: 750px;
-    background-color: burlywood;
+    grid-template-rows: 100px 1fr 100px;
+    gap: 30px;
+    height: 100vh;
+    background-color: rgb(226, 218, 208);
+    grid-template-areas: 
+    "header header header"
+    "MAIN MAIN side"
+    "footer footer footer"
+    ;
 
+nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: end;
+    height: 100%;
+}
 }
 .child1 {
-    grid-column-start: 1;
+    /* grid-column-start: 1;
     grid-column-end: 3;
-    grid-column: span 3;
-    background-color: brown;
+    grid-column: span 3; */
+    background-color: red;
     width: auto;
     height: auto;
+    grid-area: header;
 
 }
 
 .child2{
     background-color:blue;
-    grid-column: span 2;
+    /* grid-column: span 2; */
+    grid-area:MAIN
    
 
 }
 
 .child3{
     background-color: aqua;
-    grid-row: 2;
+    /* grid-row: 2;
     grid-column: 3;
-    grid-row: span 2;
+    grid-row: span 2; */
+    grid-area:side
+
 }
 .child4{
-    background-color: gray;
-    grid-row: 3;
+    background-color: rgb(103, 9, 98);
+    /* grid-row: 3;
     grid-column: 1;
-    grid-column: span 2;
+    grid-column: span 2; */
+    grid-area:footer
 }
-.child5{
-    background-color: gray;
-    grid-row: 4;
-    grid-column: 1;
-    grid-column: span 3;
-}
+
 </style>
 </head>
 <body>
@@ -59,23 +70,27 @@
 
     <div class="grid-parent">
         <div class="child1">
-            Inside HEADER
+            <nav>
+                <div>Home</div>
+                <div>About</div>
+                <div>Contact</div>
+            </nav>
         </div>
    
         <div class="child2">
-                child2
+            <nav>
+                <div>Australia</div>
+                <div>Fiji</div>
+                <div>New Zealand</div>
+            </nav>
         </div>
 
         <div class="child3">
-            child3
+            aside
         </div>
 
         <div class="child4">
-            child4
-        </div>
-        
-        <child5 class="child5">
-            child5
+            footer
         </div>
     </div>
 
